@@ -207,18 +207,40 @@ curl -X PATCH http://localhost:3000/api/users/<ID> \
 
 ### Financial Records
 #### List/Search Records
-`GET /api/records?page=1&limit=10&type=EXPENSE`
+Get a paginated list of records with optional filtering.
 ```bash
-curl -H "Authorization: Bearer <TOKEN>" "http://localhost:3000/api/records"
+curl -H "Authorization: Bearer <TOKEN>" "http://localhost:3000/api/records?page=1&limit=10&type=EXPENSE"
+```
+
+#### Get Record Details
+Retrieve a single financial record by its unique ID.
+```bash
+curl -H "Authorization: Bearer <TOKEN>" http://localhost:3000/api/records/<ID>
 ```
 
 #### Create Record (Analyst/Admin)
-`POST /api/records`
+Create a new income or expense record.
 ```bash
 curl -X POST http://localhost:3000/api/records \
   -H "Authorization: Bearer <TOKEN>" \
   -H "Content-Type: application/json" \
   -d '{"amount": 150.00, "type": "EXPENSE", "category": "Food", "date": "2024-03-24"}'
+```
+
+#### Update Record (Analyst/Admin)
+Update an existing financial record (partial updates supported).
+```bash
+curl -X PATCH http://localhost:3000/api/records/<ID> \
+  -H "Authorization: Bearer <TOKEN>" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 200.00, "description": "Updated grocery bill"}'
+```
+
+#### Delete Record (Analyst/Admin)
+Soft-delete a record (marks as deleted but preserves data).
+```bash
+curl -X DELETE http://localhost:3000/api/records/<ID> \
+  -H "Authorization: Bearer <TOKEN>"
 ```
 
 ---
