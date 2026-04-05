@@ -225,13 +225,34 @@ curl -X POST http://localhost:3000/api/records \
 
 ### Dashboard Analytics
 #### Summary
-`GET /api/dashboard/summary`
+Get overall income/expense totals and net balance.
+```bash
+curl -H "Authorization: Bearer <TOKEN>" http://localhost:3000/api/dashboard/summary
+```
+
 #### Category Breakdown
-`GET /api/dashboard/by-category`
+Get income/expense breakdown aggregated by category (case-insensitive).
+```bash
+curl -H "Authorization: Bearer <TOKEN>" http://localhost:3000/api/dashboard/by-category
+```
+
 #### Monthly Trend
-`GET /api/dashboard/monthly-trend?months=12`
+Get monthly income/expense trends for a given time period.
+```bash
+curl -H "Authorization: Bearer <TOKEN>" "http://localhost:3000/api/dashboard/monthly-trend?months=12"
+```
+
 #### Weekly Trend
-`GET /api/dashboard/weekly-trend?weeks=12`
+Get weekly income/expense trends for a given time period.
+```bash
+curl -H "Authorization: Bearer <TOKEN>" "http://localhost:3000/api/dashboard/weekly-trend?weeks=12"
+```
+
+#### Recent Activity
+Get the latest financial transactions.
+```bash
+curl -H "Authorization: Bearer <TOKEN>" "http://localhost:3000/api/dashboard/recent-activity?limit=10"
+```
 
 ---
 
