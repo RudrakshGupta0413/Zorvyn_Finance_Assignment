@@ -168,6 +168,10 @@ graph LR
 
 ## API Documentation
 
+Explore the interactive API documentation and test the endpoints directly using our public Postman Collection:
+**[Postman API Documentation](https://documenter.getpostman.com/view/36787586/2sBXiqEUKk)**
+
+---
 ### Authentication
 #### Register
 `POST /api/auth/register`
